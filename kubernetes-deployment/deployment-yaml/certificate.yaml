@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  # different name
+  name: test-prod
+  namespace: default
+spec:
+  # dedicate secret for the TLS cert
+  secretName: test-production-certificate
+  issuerRef:
+    # referencing the production issuer
+    name: letsencrypt-prod
+  dnsNames:
+  - test.docker.hello.com 
